@@ -15,6 +15,7 @@ return {
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.shfmt,
 			},
 			-- you can reuse a shared lspconfig on_attach callback here
 			on_attach = function(client, bufnr)
