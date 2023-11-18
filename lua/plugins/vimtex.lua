@@ -1,6 +1,7 @@
 return {
 	"lervag/vimtex",
 	config = function()
+	vim.g.vimtex_compiler_latexmk = { options = { '-verbose', '-file-line-error', '-synctex=1', '-interaction=nonstopmode', '-shell-escape', }, } 
 		local autocmd = vim.api.nvim_create_autocmd
 		vim.api.nvim_create_augroup("CustomTex", {})
 		autocmd("User", {

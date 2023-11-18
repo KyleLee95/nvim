@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs)
 	local options = { noremap = false, silent = true, nowait = true }
 	vim.keymap.set(mode, lhs, rhs, options)
 end
-
+map({ "i", "n", "v" }, "gd", "<cmd>Telescope lsp_definitions<cr>")
 --map({'i','n','v'}, '<Left>', '<nop>')
 --map({'i','n','v'}, '<Right>', '<nop>')
 --map({'i','n','v'}, '<Up>', '<nop>')
@@ -19,6 +19,8 @@ map({ "i", "n", "v" }, "<M-w>", "<Cmd>BufferClose<CR>")
 map({ "i", "n", "v" }, "<M-S-t>", "<Cmd>BufferRestore<CR>")
 map({ "i", "n", "v" }, "<F12>", ":UndotreeToggle <Enter>")
 
+map({ "i", "n", "v" }, "<leader>vs", ":vs <Enter>")
+map({ "i", "n", "v" }, "<leader>vh", ":split <Enter>")
 --Remap copy paste to work with system clipboard
 
 map({ "i", "n", "v" }, "<leader>Y", "+yg")
