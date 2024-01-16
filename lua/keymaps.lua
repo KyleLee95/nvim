@@ -1,8 +1,8 @@
 --need to map leader at top so that other plugins don't interfere
 
 vim.g.mapleader = ","
-
 vim.g.maplocalleader = "."
+
 local function map(mode, lhs, rhs)
 	local options = { noremap = false, silent = true, nowait = true }
 	vim.keymap.set(mode, lhs, rhs, options)

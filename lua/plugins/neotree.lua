@@ -1,6 +1,6 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v2.x",
+	branch = "v3.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -13,7 +13,7 @@ return {
 			enable_git_status = true,
 			enable_diagnostics = true,
 			sort_case_insensitive = false, -- used when sorting files and directories in the tree
-			sort_function = nil, -- use a custom function for sorting files and directories in the tree
+			sort_function = nil,  -- use a custom function for sorting files and directories in the tree
 			-- sort_function = function (a,b)
 			--       if a.type == b.type then
 			--           return a.path > b.path
@@ -42,10 +42,11 @@ return {
 				icon = {
 					folder_closed = "",
 					folder_open = "",
-					folder_empty = "󰜌",
+					folder_empty = "󰜌",	
 					-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 					-- then these will never be used.
 					default = "*",
+					-- highlight = '#9CDCFE'
 					highlight = "NeoTreeFileIcon",
 				},
 				modified = {
@@ -158,7 +159,7 @@ return {
 				},
 				follow_current_file = false, -- This will find and focus the file in the active buffer every
 				-- time the current file is changed while the tree is open.
-				group_empty_dirs = false, -- when true, empty folders will be grouped together
+				group_empty_dirs = false,   -- when true, empty folders will be grouped together
 				hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
 				-- in whatever position is specified in window.position
 				-- "open_current",  -- netrw disabled, opening a directory opens within the
