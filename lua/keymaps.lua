@@ -37,6 +37,32 @@ vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
 vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
+-- custom utilities
+-- function is defined above the keybinding
+-- local function find_and_replace()
+-- 	-- Get input from the user
+-- 	local input = vim.api.fn.input("Enter pattern (pattern_to_replace/new_pattern): ")
+-- 	print("Input received: " .. input) -- Debug: Print the input for verification
+--
+-- 	-- Extract the search and replace patterns
+-- 	local search, replace = input:match("([^/]+)/([^/]*)")
+-- 	if not search or not replace then
+-- 		print("Invalid input format. Please use the format: pattern_to_replace/new_pattern")
+-- 		return
+-- 	end
+--
+-- 	-- Debug: Print the search and replace patterns
+-- 	print("Search pattern: " .. search)
+-- 	print("Replace pattern: " .. replace)
+--
+-- 	-- Perform the substitution
+-- 	local cmd = "%s/" .. vim.fn.escape(search, "/") .. "/" .. vim.fn.escape(replace, "/") .. "/g"
+-- 	print("Executing command: " .. cmd) -- Debug: Print the command
+-- 	vim.api.nvim_command(cmd)
+-- end
+-- vim.api.nvim_set_keymap("n", "<leader>fr", ":call find_and_replace()<CR>", { noremap = true, silent = true })
+--yanking
+map({ "i", "n", "v" }, "<leader>yy", "yy")
 
 -- vimtex compile
 map({ "i", "n", "v" }, "<leader>vc", ":VimtexCompile <Enter>")

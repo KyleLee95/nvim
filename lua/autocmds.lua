@@ -1,7 +1,7 @@
 --trigger nabla on .wiki files
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.wiki" },
-	command = '',
+	command = "",
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {

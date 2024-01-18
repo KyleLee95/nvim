@@ -10,6 +10,7 @@ return {
 			sources = {
 				--would use this if we weren't using the built-in LSP.
 				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.diagnostics.mypy,
 				--null_ls.builtins.diagnostics.eslint,
 				--null_ls.builtins.completion.spell,
 				null_ls.builtins.formatting.clang_format,
