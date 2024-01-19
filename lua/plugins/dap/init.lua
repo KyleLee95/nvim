@@ -14,7 +14,19 @@ return {
 		local mason = require("mason")
 		local mason_dap = require("mason-nvim-dap")
 		local dap = require("dap")
-		local ui = require("dapui")
+		local dapui = require("dapui")
+		dap.listeners.before.attach.dapui_config = function()
+		  dapui.open()
+		end
+		dap.listeners.before.launch.dapui_config = function()
+		  dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+		  dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+		  dapui.close()
+		end
 
 		dap.set_log_level("TRACE")
 
@@ -56,7 +68,7 @@ return {
 			dap.continue({})
 			vim.cmd("tabedit %")
 			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-o>", false, true, true), "n", false)
-			ui.toggle({})
+			dapui.toggle({})
 		end
 
 		vim.keymap.set("n", "<leader>ds", dap_start_debugging)
@@ -86,7 +98,7 @@ return {
 
 		local function dap_end_debug()
 			dap.clear_breakpoints()
-			ui.toggle({})
+			dapui.toggle({})
 			dap.terminate({}, { terminateDebuggee = true }, function()
 				vim.cmd.bd()
 				u.resize_vertical_splits()
@@ -97,7 +109,7 @@ return {
 		vim.keymap.set("n", "<leader>de", dap_end_debug)
 
 		-- UI Settings
-		ui.setup({
+		dapui.setup({
 			icons = { expanded = "▾", collapsed = "▸" },
 			mappings = {
 				expand = { "<CR>", "<2-LeftMouse>" },
