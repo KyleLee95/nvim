@@ -1,6 +1,3 @@
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
---
 --sets relative and absolute line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true

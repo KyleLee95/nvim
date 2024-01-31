@@ -8,7 +8,7 @@ return {
 		-- "s1n7ax/nvim-window-picker",
 	},
 	config = function()
-		local neotree = require("neo-tree").setup({
+		require("neo-tree").setup({
 			close_if_last_window = false, -- Close
 			window = {
 				position = "left",
