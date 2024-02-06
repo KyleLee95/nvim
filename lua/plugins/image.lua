@@ -9,7 +9,7 @@ return {
 			integrations = {
 				markdown = {
 					enabled = true,
-					clear_in_insert_mode = false,
+					clear_in_insert_mode = true,
 					download_remote_images = true,
 					only_render_image_at_cursor = false,
 					filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
@@ -20,13 +20,6 @@ return {
 						-- you can call the fallback function to get the default behavior
 						return fallback(document_path, image_path)
 					end,
-				},
-				neorg = {
-					enabled = true,
-					clear_in_insert_mode = false,
-					download_remote_images = true,
-					only_render_image_at_cursor = false,
-					filetypes = { "norg" },
 				},
 			},
 			max_width = nil,

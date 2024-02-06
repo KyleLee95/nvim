@@ -13,7 +13,6 @@ return {
 		{ "hrsh7th/cmp-path" }, -- optional
 		{ "saadparwaiz1/cmp_luasnip" }, -- optional
 		{ "hrsh7th/cmp-nvim-lua" }, -- optional
-
 		-- snippets
 		{ "l3mon4d3/luasnip" }, -- required
 		{ "rafamadriz/friendly-snippets" }, -- optional
