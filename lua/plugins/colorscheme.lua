@@ -1,4 +1,4 @@
--- my own custom theme forked from lunarvim's darkplus:)
+--my own custom theme forked from lunarvim's darkplus:)
 -- return {
 -- 	dir = "~/dev/darkplus.nvim/",
 -- 	lazy = false,
@@ -24,7 +24,7 @@
 -- }
 
 return {
-	dir = "~/dev/base46-colors/lua/radium/",
+	dir = "~/dev/base46-colors/",
 	lazy = false,
 	priority = 1000,
 	config = function()
