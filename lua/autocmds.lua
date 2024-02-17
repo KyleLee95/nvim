@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.wrapmargin = 0
 		vim.opt_local.wrap = true
 		vim.opt_local.linebreak = true
-		-- vim.opt_local.columns = 80
+		vim.opt_local.columns = 80
 	end,
 })
 
