@@ -9,4 +9,5 @@ set.relativenumber = true
 set.conceallevel = 1
 
 vim.o.statuscolumn = "%s %l %r "
---
+vim.o.clipboard = "unnamedplus"
+vim.o.termguicolors = true
