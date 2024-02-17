@@ -21,7 +21,7 @@ return {
 			drag_and_drop = {
 				enabled = true, -- enable drag and drop mode
 				insert_mode = false, -- enable drag and drop in insert mode
-				copy_images = false, -- copy images instead of using the original file
+				copy_images = true, -- copy images instead of using the original file
 				download_images = true, -- download images and save them to dir_path instead of using the URL
 			},
 		},
@@ -37,7 +37,7 @@ return {
 				template = "![$CURSOR]($FILE_PATH)",
 
 				drag_and_drop = {
-					download_images = false,
+					download_images = true,
 				},
 			},
 
