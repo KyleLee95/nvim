@@ -7,16 +7,19 @@ return {
 	opts = function()
 		local null_ls = require("null-ls")
 		return {
+			-- for list of built-ins: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
 			sources = {
-				--would use this if we weren't using the built-in LSP.
+				-- me no know tab or space good or line or newline. let compooper decide for me
 				null_ls.builtins.formatting.stylua,
-				-- null_ls.builtins.diagnostics.mypy,
-				--null_ls.builtins.diagnostics.eslint,
-				--null_ls.builtins.completion.spell,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.shfmt,
+				null_ls.builtins.formatting.latexindent,
+				-- me no spell or write good.
+				null_ls.builtins.diagnostics.vale,
+				-- me no write good. let compooper decide for me.
+				null_ls.builtins.completion.spell
 			},
 			-- you can reuse a shared lspconfig on_attach callback here
 			on_attach = function(client, bufnr)
