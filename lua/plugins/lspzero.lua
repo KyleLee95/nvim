@@ -75,7 +75,7 @@ return {
 		vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
-			ensure_installed = { "tsserver", "rust_analyzer", "lua_ls" },
+			ensure_installed = { "tsserver", "lua_ls" },
 			handlers = {
 				lsp_zero.default_setup,
 				lua_ls = function()
