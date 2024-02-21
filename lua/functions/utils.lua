@@ -1,6 +1,6 @@
 -- These are functions that are used within the Lua
 -- configuration and are not meant for export to the end
--- user.
+-- user. and
 
 -- Validates number + function for debounce, see https://gist.github.com/runiq/31aa5c4bf00f8e0843cd267880117201
 local function td_validate(fn, ms)
