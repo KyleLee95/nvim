@@ -1,4 +1,4 @@
---my own custom theme forked from lunarvim's darkplus:)
+-- --my own custom theme forked from lunarvim's darkplus:)
 -- return {
 -- 	dir = "~/dev/darkplus.nvim/",
 -- 	lazy = false,
@@ -23,14 +23,14 @@
 -- 	end,
 -- }
 
-return {
-	dir = "~/dev/base46-colors/",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		vim.cmd("colorscheme chadtain")
-	end,
-}
+-- return {
+-- 	dir = "~/dev/base46-colors/",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd("colorscheme decay")
+-- 	end,
+-- }
 -- return {
 -- 	"miikanissi/modus-themes.nvim",
 -- 	lazy = false,
@@ -68,13 +68,50 @@ return {
 -- 		})
 -- 	end,
 -- }
+
+return {
+	"rmehri01/onenord.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("onenord").setup({
+			theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+			borders = true, -- Split window borders
+			fade_nc = false, -- Fade non-current windows, making them more distinguishable
+			-- Style that is applied to various groups: see `highlight-args` for options
+			styles = {
+				comments = "italic",
+				strings = "NONE",
+				keywords = "bold",
+				functions = "NONE",
+				variables = "NONE",
+				diagnostics = "underline",
+			},
+			disable = {
+				background = false, -- Disable setting the background color
+				float_background = false, -- Disable setting the background color for floating windows
+				cursorline = false, -- Disable the cursorline
+				eob_lines = true, -- Hide the end-of-buffer lines
+			},
+			-- Inverse highlight for different groups
+			inverse = {
+				match_paren = false,
+			},
+			custom_highlights = {}, -- Overwrite default highlight groups
+			custom_colors = {}, -- Overwrite default colors
+		})
+		vim.cmd("colorscheme onenord")
+	end,
+}
+
+--- Nordic colorschemes
 -- return {
---     'AlexvZyl/nordic.nvim',
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require 'nordic'.load()
---     end
+-- 	"AlexvZyl/nordic.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("nordic").load()
+-- 	end,
 -- }
 -- return {
 -- 	"pradyungn/Mountain",
@@ -83,5 +120,22 @@ return {
 -- 	config = function()
 --
 -- 		vim.cmd("colorscheme mountain")
+-- 	end,
+-- }
+-- return {
+-- 	"edeneast/nightfox.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("nightfox").setup({
+-- 			options = {
+-- 				styles = {
+-- 					comments = "italic",
+-- 					keywords = "bold",
+-- 					types = "italic,bold",
+-- 				},
+-- 			},
+-- 		})
+-- 		vim.cmd("colorscheme nordfox")
 -- 	end,
 -- }
