@@ -1,27 +1,27 @@
 -- --my own custom theme forked from lunarvim's darkplus:)
--- return {
--- 	dir = "~/dev/darkplus.nvim/",
--- 	lazy = false,
--- 	priority = 1000,
--- 	config = function()
--- 		vim.cmd("colorscheme darkplus")
--- 		--set background transparent
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#6e7681", bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#6e7681", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "#0f0f0f", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NonText", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
--- 	end,
--- }
+return {
+	dir = "~/dev/darkplus.nvim/",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd("colorscheme darkplus")
+		--set background transparent
+		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#6e7681", bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#6e7681", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "#0f0f0f", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NonText", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE", ctermbg = "NONE" })
+	end,
+}
 
 -- return {
 -- 	dir = "~/dev/base46-colors/",
@@ -69,40 +69,40 @@
 -- 	end,
 -- }
 
-return {
-	"rmehri01/onenord.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		require("onenord").setup({
-			theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
-			borders = true, -- Split window borders
-			fade_nc = false, -- Fade non-current windows, making them more distinguishable
-			-- Style that is applied to various groups: see `highlight-args` for options
-			styles = {
-				comments = "italic",
-				strings = "NONE",
-				keywords = "bold",
-				functions = "NONE",
-				variables = "NONE",
-				diagnostics = "underline",
-			},
-			disable = {
-				background = false, -- Disable setting the background color
-				float_background = false, -- Disable setting the background color for floating windows
-				cursorline = false, -- Disable the cursorline
-				eob_lines = true, -- Hide the end-of-buffer lines
-			},
-			-- Inverse highlight for different groups
-			inverse = {
-				match_paren = false,
-			},
-			custom_highlights = {}, -- Overwrite default highlight groups
-			custom_colors = {}, -- Overwrite default colors
-		})
-		vim.cmd("colorscheme onenord")
-	end,
-}
+-- return {
+-- 	"rmehri01/onenord.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("onenord").setup({
+-- 			theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+-- 			borders = true, -- Split window borders
+-- 			fade_nc = false, -- Fade non-current windows, making them more distinguishable
+-- 			-- Style that is applied to various groups: see `highlight-args` for options
+-- 			styles = {
+-- 				comments = "italic",
+-- 				strings = "NONE",
+-- 				keywords = "bold",
+-- 				functions = "NONE",
+-- 				variables = "NONE",
+-- 				diagnostics = "underline",
+-- 			},
+-- 			disable = {
+-- 				background = false, -- Disable setting the background color
+-- 				float_background = false, -- Disable setting the background color for floating windows
+-- 				cursorline = false, -- Disable the cursorline
+-- 				eob_lines = true, -- Hide the end-of-buffer lines
+-- 			},
+-- 			-- Inverse highlight for different groups
+-- 			inverse = {
+-- 				match_paren = false,
+-- 			},
+-- 			custom_highlights = {}, -- Overwrite default highlight groups
+-- 			custom_colors = {}, -- Overwrite default colors
+-- 		})
+-- 		vim.cmd("colorscheme onenord")
+-- 	end,
+-- }
 
 --- Nordic colorschemes
 -- return {

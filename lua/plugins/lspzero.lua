@@ -20,7 +20,6 @@ return {
 	config = function()
 		local lsp_zero = require("lsp-zero")
 		local cmp_action = lsp_zero.cmp_action()
-
 		lsp_zero.on_attach(function(client, bufnr)
 			local opts = { buffer = bufnr, remap = false }
 
@@ -64,12 +63,12 @@ return {
 
 		vim.fn.sign_define("DiagnosticSignHint", { text = "󱧢", texthl = "LspDiagnosticsDefaultHint" })
 		vim.diagnostic.config({
-			virtual_text = false,
+			virtual_text=false,
 			signs = true,
 			update_in_insert = false,
 			underline = true,
 			severity_sort = true,
-			float = true,
+			float = false,
 		})
 		vim.o.updatetime = 250
 		vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
