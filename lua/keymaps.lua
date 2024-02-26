@@ -8,7 +8,7 @@ local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 map({ "i", "n", "v" }, "gd", "<cmd>Telescope lsp_definitions<cr>")
-map({ "i", "n", "v" }, "<M-b>", ":Neotree toggle <Enter>")
+map({ "i", "n", "v" }, "<C-b>", ":Neotree toggle <Enter>")
 map({ "i", "n", "v" }, "<F12>", ":UndotreeToggle <Enter>")
 
 --Splits

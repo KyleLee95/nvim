@@ -18,7 +18,7 @@ return {
 				-- null_ls.builtins.formatting.codespell,
 				-- me no spell or write good.
 
-				null_ls.builtins.diagnostics.vale,
+				-- null_ls.builtins.diagnostics.vale,
 				-- null_ls.builtins.diagnostics.codespell.with({
 				-- 	filetypes = {
 				-- 		"lua",
