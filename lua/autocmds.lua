@@ -63,3 +63,6 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 		vim.opt_local.textwidth = 120
 	end,
 })
+
+-- disable adding comment on new line
+vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
