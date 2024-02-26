@@ -8,11 +8,7 @@ local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 map({ "i", "n", "v" }, "gd", "<cmd>Telescope lsp_definitions<cr>")
-map({ "i", "n", "v" }, "<C-b>", ":Neotree toggle <Enter>")
-map({ "i", "n", "v" }, "<M-tab>", "<Cmd>BufferNext<CR>")
-map({ "i", "n", "v" }, "<M-S-tab>", "<Cmd>BufferPrevious<CR>")
-map({ "i", "n", "v" }, "<M-w>", "<Cmd>BufferClose<CR>")
-map({ "i", "n", "v" }, "<M-S-t>", "<Cmd>BufferRestore<CR>")
+map({ "i", "n", "v" }, "<M-b>", ":Neotree toggle <Enter>")
 map({ "i", "n", "v" }, "<F12>", ":UndotreeToggle <Enter>")
 
 --Splits
@@ -20,9 +16,7 @@ map({ "i", "n", "v" }, "<leader>vs", ":vs <Enter>")
 map({ "i", "n", "v" }, "<leader>vh", ":split <Enter>")
 
 --Remap copy paste to work with system clipboard
-map({ "i", "n", "v" }, "<leader>Y", "+yg")
 map({ "i", "n", "v" }, "<leader>y", "+y")
-map({ "i", "n", "v" }, "<leader>yy", "yy")
 
 --folke/trouble keymaps
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
@@ -36,6 +30,5 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 map({ "n", "n", "v" }, "<leader>cg", "<cmd>ChatGPT<cr>")
 map({ "n", "n", "v" }, "<leader>cge", "<cmd>ChatGPTRun explain_code<cr>")
 
--- vimtex compile
+-- vimtex
 map({ "i", "n", "v" }, "<leader>vc", ":VimtexCompile <Enter>")
-map({ "i", "n", "v" }, "<leader>sc", ":set spell <Enter>")
