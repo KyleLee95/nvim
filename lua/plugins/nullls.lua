@@ -14,7 +14,7 @@ return {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.shfmt,
-				null_ls.builtins.formatting.latexindent,
+				-- null_ls.builtins.formatting.latexindent,
 				-- null_ls.builtins.formatting.codespell,
 				-- me no spell or write good.
 
