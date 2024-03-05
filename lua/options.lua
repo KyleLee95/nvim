@@ -9,9 +9,10 @@ set.relativenumber = true
 set.conceallevel = 1
 -- spelling. See autocmds.lua for more
 set.spelllang = "en_us"
+-- ignoring case in search
+set.ignorecase = true
+set.smartcase = true
 
 vim.o.statuscolumn = "%s %l %r "
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
-
--- and set them good

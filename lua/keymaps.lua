@@ -16,7 +16,6 @@ map({ "i", "n", "v" }, "<leader>vs", ":vs <Enter>")
 map({ "i", "n", "v" }, "<leader>vh", ":split <Enter>")
 
 --Remap copy paste to work with system clipboard
-map({ "i", "n", "v" }, "<leader>y", "+y")
 
 --folke/trouble keymaps
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })

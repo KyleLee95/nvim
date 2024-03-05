@@ -6,7 +6,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	callback = function()
 		vim.opt_local.spell = true
 		vim.opt_local.wrap = true
-		vim.opt_local.linebreak = true
 		vim.opt_local.textwidth = 80
 	end,
 })
@@ -17,7 +16,6 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 	callback = function()
 		vim.opt_local.spell = false
 		vim.opt_local.wrap = false
-		vim.opt_local.linebreak = false
 		vim.opt_local.textwidth = 120
 	end,
 })
@@ -48,7 +46,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	callback = function()
 		vim.opt_local.spell = true
 		vim.opt_local.wrap = true
-		vim.opt_local.linebreak = true
 		vim.opt_local.textwidth = 80
 	end,
 })
@@ -59,7 +56,6 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 	callback = function()
 		vim.opt_local.spell = false
 		vim.opt_local.wrap = false
-		vim.opt_local.linebreak = false
 		vim.opt_local.textwidth = 120
 	end,
 })
