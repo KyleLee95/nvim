@@ -30,10 +30,6 @@ return {
 			scope = {
 				highlight = highlight,
 			},
-			-- delimiter = {
-			-- 	highlight = highlight,
-			-- }
 		})
 	end,
 }
-
