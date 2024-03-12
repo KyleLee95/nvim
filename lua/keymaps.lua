@@ -33,3 +33,6 @@ map({ "i", "n", "v" }, "<leader>vc", ":VimtexCompile <Enter>")
 vim.api.nvim_set_keymap("i", "<C-p>", "()<Esc>i", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-o>", "{}<Esc>i", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-\\>", "[]<Esc>i", { noremap = true })
+
+-- oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
