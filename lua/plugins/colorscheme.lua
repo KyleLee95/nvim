@@ -1,4 +1,4 @@
---my own custom theme forked from lunarvim's darkplus:)
+-- --my own custom theme forked from lunarvim's darkplus:)
 return {
 	dir = "~/dev/darkplus.nvim/",
 	lazy = false,

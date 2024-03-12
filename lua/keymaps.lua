@@ -15,8 +15,6 @@ map({ "i", "n", "v" }, "<F12>", ":UndotreeToggle <Enter>")
 map({ "i", "n", "v" }, "<leader>vs", ":vs <Enter>")
 map({ "i", "n", "v" }, "<leader>vh", ":split <Enter>")
 
---Remap copy paste to work with system clipboard
-
 --folke/trouble keymaps
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true })
@@ -31,3 +29,7 @@ map({ "n", "n", "v" }, "<leader>cge", "<cmd>ChatGPTRun explain_code<cr>")
 
 -- vimtex
 map({ "i", "n", "v" }, "<leader>vc", ":VimtexCompile <Enter>")
+
+vim.api.nvim_set_keymap("i", "<C-p>", "()<Esc>i", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-o>", "{}<Esc>i", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-\\>", "[]<Esc>i", { noremap = true })
