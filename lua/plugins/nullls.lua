@@ -14,28 +14,6 @@ return {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.shfmt,
-				-- null_ls.builtins.formatting.latexindent,
-				-- null_ls.builtins.formatting.codespell,
-				-- me no spell or write good.
-
-				-- null_ls.builtins.diagnostics.vale,
-				-- null_ls.builtins.diagnostics.codespell.with({
-				-- 	filetypes = {
-				-- 		"lua",
-				-- 		"javascript",
-				-- 		"typescript",
-				-- 		"python",
-				-- 		"typescriptreact",
-				-- 		"javascriptreact",
-				-- 		"c",
-				-- 		"cpp",
-				-- 		"rust",
-				-- 		"go",
-				-- 		"haskell",
-				-- 		"rust",
-				-- 	},
-				-- }),
-				-- me no write good. let compooper decide for me.
 				null_ls.builtins.completion.spell,
 			},
 			-- you can reuse a shared lspconfig on_attach callback here

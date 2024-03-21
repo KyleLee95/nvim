@@ -1,6 +1,6 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
+	branch = "main",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -10,6 +10,12 @@ return {
 	config = function()
 		require("neo-tree").setup({
 			close_if_last_window = false, -- Close
+			group_empty_dirs = false, -- when true, empty folders will be grouped together
+			hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+			-- in whatever position is specified in window.position
+			-- "open_current",  -- netrw disabled, opening a directory opens within the
+			-- window like netrw would, regardless of window.position
+			-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
 			window = {
 				position = "left",
 				width = 40,

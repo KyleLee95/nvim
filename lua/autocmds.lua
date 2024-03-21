@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = "latex_settings",
 	callback = function()
 		vim.opt_local.spell = true
-		vim.opt_local.wrap = true
+		vim.opt_local.wrap = false
 		vim.opt_local.textwidth = 80
 	end,
 })
