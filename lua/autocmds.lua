@@ -119,99 +119,44 @@ local filetype_commands = {
 	python = "python3 %; read",
 	javascript = "node %; read",
 	typescript = "ts-node %; read",
-	haskell = "stack build && stack test; read",
+	haskell = "stack build && stack test; zsh",
+	lua = "lua %; zsh",
 	-- Add more filetypes and commands as needed
 }
 
+-- local execution_panes = {}
+
 -- Function to get the command for the current filetype
-local function get_tmux_command()
-	local filetype = vim.bo.filetype
-	local command = filetype_commands[filetype]
-	if command then
-		-- Get the directory of the current file
-		local file_dir = vim.fn.expand("%:p:h")
-		local output_split = file_dir .. "output"
-		-- Change to the directory before executing the command
-		return ":!tmux set-option -p history-limit 10000 \\; split-window -h 'cd "
-			.. file_dir
-			.. " && "
-			.. command
-			.. " && tmux rename-window "
-			.. output_split
-			.. "'<cr>"
-	else
-		return nil
-	end
-end
-
-local function get_tmux_command()
-	local filetype = vim.bo.filetype
-	local command = filetype_commands[filetype]
-	if command then
-		-- Check if the current buffer is associated with a file
-		local file_path = vim.fn.expand("%:p")
-		if file_path == "" then
-			vim.notify("No file associated with the current buffer.")
-			return nil
-		end
-
-		-- Get the directory of the current file
-		local file_dir = vim.fn.expand("%:p:h")
-		-- Set a custom name for the split
-		local split_name = "CustomName" -- Replace "CustomName" with your desired name
-
-		-- Construct the tmux command
-		local tmux_cmd = "tmux if-shell \"tmux list-panes -F '#W' | grep -q '^"
-			.. split_name
-			.. "$'\" \"select-window -t '"
-			.. split_name
-			.. "'\" \"set-option -p history-limit 10000 \\; split-window -h -c '"
-			.. file_dir
-			.. "' -n '"
-			.. split_name
-			.. "' \\; send-keys '"
-			.. command
-			.. "' C-m\""
-
-		-- Return the command to be executed in Neovim
-		return ":!" .. tmux_cmd .. "<cr>"
-	else
-		-- vim.notify("Command not found for filetype: " .. filetype, "echo ${pwd}")
-		return nil
-	end
+local function get_tmux_command(filetype)
+	-- local command = filetype_commands[filetype]
+	-- local file_dir = vim.fn.expand("%:p:h")
+	--
+	-- -- No pane is already running for the current directory
+	-- if execution_panes[file_dir] == nil then
+	-- 	local pane_id = io.popen("tmux display-message -p -F '#{pane_id}'"):read("*a"):gsub("\n", "")
+	-- 	vim.notify("tmux pane id: " .. pane_id)
+	--
+	-- 	execution_panes[file_dir] = pane_id
+	-- 	vim.notify("updated pane table" .. execution_panes[file_dir])
+	--
+	-- 	return ":!tmux split-window -h 'cd " .. file_dir .. " && " .. command .. "'<cr>"
+	-- 	-- pane is already running for the current filetype
+	-- else
+	-- 	local pane_id = execution_panes[file_dir]
+	-- 	return ":!tmux select-pane -t " .. pane_id .. " && " .. command .. "<cr>"
+	-- end
+	return ":!tmux split-window -h 'cd " .. vim.fn.expand("%:p:h") .. " && " .. filetype_commands[filetype] .. "'<cr>"
 end
 
 -- Set the keymap using the dynamic command
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*", -- Run for all filetypes
-	callback = function()
-		local tmux_command = get_tmux_command()
-		-- vim.notify(tmux_command)
-		if tmux_command then
-			vim.keymap.set("n", "<leader>rr", tmux_command, { silent = true, noremap = true })
-		end
-	end,
-})
-
--- --disable plugins on big files
--- local function disable_plugins_for_large_files()
--- 	-- Set the threshold file size (e.g., 10 MB)
--- 	local threshold_size = 1024 * 1024 * 10
---
--- 	-- Get the size of the current file
--- 	local file_size = vim.fn.getfsize(vim.fn.expand("%:p"))
---
--- 	-- Check if the file size exceeds the threshold
--- 	if file_size > threshold_size then
--- 		-- Disable plugins as needed
--- 		-- For example, to disable a plugin like 'syntastic'
--- 		vim.g.syntastic_enable_checks = 0
--- 		-- Add similar lines for other plugins you want to disable
--- 	end
--- end
---
--- -- Set up the autocommand to run the function when opening a file
--- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
--- 	pattern = "*",
--- 	callback = disable_plugins_for_large_files,
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*", -- Run for all filetypes
+-- 	callback = function()
+-- 		local filetype = vim.bo.filetype
+-- 		local filetype_has_tmux_command = filetype_commands[filetype] ~= nil
+-- 		if filetype_has_tmux_command then
+-- 			local tmux_command = get_tmux_command(filetype)
+-- 			vim.keymap.set("n", "<leader>rr", tmux_command, { silent = true, noremap = true })
+-- 		end
+-- 	end,
 -- })
