@@ -1,6 +1,6 @@
 return {
 	"luk400/vim-jukit",
-	ft = { "py", "ipynb" },
+	ft = {"ipynb", "py"},
 	config = function()
 		vim.g.jukit_highlight_markers = 1
 		vim.g.jukit_enable_textcell_bg_hl = 1
