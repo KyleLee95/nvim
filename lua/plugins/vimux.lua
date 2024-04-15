@@ -1,7 +1,7 @@
 local filetype_commands = {
-	python = "python3 %; read",
-	javascript = "node %; read",
-	typescript = "ts-node %; read",
+	python = "python3 %; zsh",
+	javascript = "node %; zsh",
+	typescript = "ts-node %; zsh",
 	haskell = "stack build && stack test; zsh",
 	lua = "lua %; zsh",
 	-- Add more filetypes and commands as needed
