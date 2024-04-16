@@ -14,5 +14,5 @@ set.ignorecase = true
 set.smartcase = true
 
 vim.o.statuscolumn = "%s %l %r "
-vim.o.clipboard = "unnamedplus"
+-- vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
