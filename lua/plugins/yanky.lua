@@ -17,7 +17,7 @@ return {
 			},
 			telescope = {
 				use_default_mappings = true, -- if default mappings should be used
-				mappings = nil, -- nil to use default mappings or no mappings (see `use_default_mappings`)
+				mappings = nil,  -- nil to use default mappings or no mappings (see `use_default_mappings`)
 			},
 		},
 		system_clipboard = {
@@ -26,7 +26,7 @@ return {
 		highlight = {
 			on_put = true,
 			on_yank = true,
-			timer = 500,
+			timer = 200,
 		},
 		preserve_cursor_position = {
 			enabled = true,
@@ -38,12 +38,13 @@ return {
 	config = function(_, opts)
 		require("yanky").setup(opts)
 		require("telescope").load_extension("yank_history")
-		vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-		vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-		vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-		vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+		vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+		vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+		vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+		vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 
 		vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
 		vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+		vim.keymap.set("n", "<leader>yh", ":lua require('telescope').extensions.yank_history.yank_history()<cr>")
 	end,
 }
