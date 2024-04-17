@@ -27,7 +27,7 @@ require("lazy").setup({
 	} } },
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
 	defaults = {
-		lazy = false,                                      -- should plugins be lazy-loaded?
+		lazy = false, -- should plugins be lazy-loaded?
 		version = nil,
 		-- version = "*", -- enable this to try installing the latest stable versions of plugins
 	},
@@ -60,16 +60,6 @@ require("lazy").setup({
 	},
 	state = vim.fn.stdpath("state") .. "/lazy/state.json", -- state info for checker and other things
 })
-
--- neovide config
--- if vim.g.neovide then
--- 	-- Put anything you want to happen only in Neovide here
--- 	local alpha = function()
--- 		return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
--- 	end
--- 	-- g:neovide_tra
--- 	vim.g.neovide_transparency = 0.0
--- 	vim.g.transparency = 0.8
--- 	vim.g.neovide_background_color = "#0f1117" .. alpha()
--- 	vim.g.neovide_window_blurred = true
--- end
+-- use ripgrep for grepping
+vim.opt.grepprg = "rg --smartcase --vimgrep"
+vim.opt.grepformat = "%f:%l:%c:%m"
