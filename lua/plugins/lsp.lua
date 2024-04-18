@@ -29,7 +29,12 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"clangd",
+				"hls",
+				"html",
 				"lua_ls",
+				"marksman",
+				"pylsp",
 				"rust_analyzer",
 				"tsserver",
 			},
@@ -54,6 +59,16 @@ return {
 					})
 				end,
 			},
+
+			["hls"] = function()
+				local lspconfig = require("lspconfig")
+				lspconfig.hls.setup({
+					capabilities = capabilities,
+					settings = {
+						formattingProviders = { "fourmolu" },
+					},
+				})
+			end,
 		})
 
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
