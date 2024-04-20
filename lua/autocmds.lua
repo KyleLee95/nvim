@@ -59,7 +59,9 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 		vim.opt_local.textwidth = 120
 	end,
 })
-vim.api.nvim_create_augroup("haskell_settings",{clear = true})
+
+--special settings for haskell because semantic white space languages are a PITA
+vim.api.nvim_create_augroup("haskell_settings", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	pattern = { "*.hs" },
 	group = "haskell_settings",
