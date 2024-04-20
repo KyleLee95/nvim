@@ -1,4 +1,7 @@
--- text wrapping in md files
+-------------------------------------------------  General --------------------------------------
+vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
+
+-------------------------------------------------  Markdown files --------------------------------------
 vim.api.nvim_create_augroup("markdown_settings", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*.md",
@@ -20,7 +23,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 	end,
 })
 
--- toggle concealing in md
+-- toggle concealing in md between insert and normal modes
 vim.api.nvim_create_augroup("markdown_conceal", { clear = true })
 vim.api.nvim_create_autocmd("InsertEnter", {
 	pattern = "*.md",
@@ -37,7 +40,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	end,
 })
 
---latex setup
+------------------------------------------------latex setup------------------------------------------------
 
 vim.api.nvim_create_augroup("latex_settings", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -59,7 +62,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 		vim.opt_local.textwidth = 120
 	end,
 })
-
+------------------------------------------------ Haskell setup ------------------------------------------------
 --special settings for haskell because semantic white space languages are a PITA
 vim.api.nvim_create_augroup("haskell_settings", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -83,11 +86,9 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 })
 
 -- disable adding comment on new line
-vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
-
+------------------------------------------------ LSP setup ------------------------------------------------------------------------------------
 vim.o.updatetime = 250
 vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
-
 local augroup = vim.api.nvim_create_augroup
 local LSPGroup = augroup("LSPGroup", {})
 local autocmd = vim.api.nvim_create_autocmd
