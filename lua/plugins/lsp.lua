@@ -65,7 +65,7 @@ return {
 				lspconfig.hls.setup({
 					capabilities = capabilities,
 					settings = {
-						formattingProviders = { "fourmolu" },
+						formattingProviders = { "ormolu" },
 					},
 				})
 			end,

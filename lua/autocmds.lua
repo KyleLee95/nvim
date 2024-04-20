@@ -59,6 +59,26 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 		vim.opt_local.textwidth = 120
 	end,
 })
+vim.api.nvim_create_augroup("haskell_settings",{clear = true})
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	pattern = { "*.hs" },
+	group = "haskell_settings",
+	callback = function()
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.shiftwidth = 2
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+	pattern = { "*.hs" },
+	group = "haskell_settings",
+	callback = function()
+		vim.opt_local.tabstop = 4
+		vim.opt_local.softtabstop = 4
+		vim.opt_local.shiftwidth = 4
+	end,
+})
 
 -- disable adding comment on new line
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
