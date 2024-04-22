@@ -85,6 +85,14 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.hs",
+	group = "haskell_settings",
+	callback = function()
+		vim.lsp.buf.format({ async = false })
+	end,
+})
+
 -- disable adding comment on new line
 ------------------------------------------------ LSP setup ------------------------------------------------------------------------------------
 vim.o.updatetime = 250
