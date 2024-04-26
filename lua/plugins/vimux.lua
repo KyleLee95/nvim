@@ -13,6 +13,7 @@ local function get_vimux_command(filetype)
 	-- return ":VimuxRunCommand('" .. command .. " . bufname("%")')<cr>"
 	local command = filetype_commands[filetype]
 	local buffer_name = vim.fn.expand("%") -- Get the name of the current buffer
+	print("buffer name", buffer_name)
 	return ":VimuxRunCommand('" .. command:gsub("%%", buffer_name) .. "')<cr>"
 end
 
