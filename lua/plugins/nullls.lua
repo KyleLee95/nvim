@@ -2,11 +2,11 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 return {
 	"nvimtools/none-ls.nvim",
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = { "mason.nvim" },
+	dependencies = { "mason.nvim", "nvimtools/none-ls-extras.nvim" },
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({
-			debug = true,
+			-- debug = true,
 			sources = {
 				-- me no know tab or space good or line or newline. let compooper decide for me
 				null_ls.builtins.formatting.stylua,

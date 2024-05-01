@@ -59,16 +59,15 @@ return {
 					})
 				end,
 			},
-
-			-- ["hls"] = function()
-			-- 	local lspconfig = require("lspconfig")
-			-- 	lspconfig.hls.setup({
-			-- 		capabilities = capabilities,
-			-- 		settings = {
-			-- 			formattingProviders = { "ormolu" },
-			-- 		},
-			-- 	})
-			-- end,
+			["hls"] = function()
+				local lspconfig = require("lspconfig")
+				lspconfig.hls.setup({
+					capabilities = capabilities,
+					settings = {
+						formattingProviders = { "ormolu" },
+					},
+				})
+			end,
 		})
 
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
