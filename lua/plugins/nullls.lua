@@ -6,11 +6,13 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({
+			debug = true,
 			sources = {
 				-- me no know tab or space good or line or newline. let compooper decide for me
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.black,
 				null_ls.builtins.completion.spell,
 			},
 
@@ -27,7 +29,6 @@ return {
 							vim.lsp.buf.format({ async = false })
 						end,
 					})
-
 				end
 			end,
 		})
