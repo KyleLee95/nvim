@@ -29,3 +29,23 @@ map({ "n", "n", "v" }, "<leader>cge", "<cmd>ChatGPTRun explain_code<cr>")
 
 -- vimtex
 map({ "i", "n", "v" }, "<leader>vc", ":VimtexCompile <Enter>")
+
+-- string.format("nvim: %s", vim.fs.basename(event.file)
+
+-- map(
+-- 	{ "i", "n", "v" },
+-- 	"<leader>rr",
+-- 	':!pane_id=$(wezterm cli spawn) && echo -e "ls -la" | wezterm cli send-text --no-paste --pane-id $pane_id <cr>'
+-- )
+
+-- vim.fn.system({
+-- 	"wezterm", "cli", "spawn",
+--
+--
+-- })
+
+-- map(
+-- 	{ "i", "n", "v" },
+-- 	"<leader>rr",
+-- 	':!pane_id=$(wezterm cli spawn) && echo -e "ls -la" | wezterm cli send-text --no-paste --pane-id $pane_id <cr>'
+-- )

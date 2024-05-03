@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		local filetype = vim.bo.filetype
 		if filetype_commands[filetype] then
 			local vimux_command = get_vimux_command(filetype)
-			vim.keymap.set("n", "<leader>rr", vimux_command, { silent = true, noremap = true })
+			-- vim.keymap.set("n", "<leader>rr", vimux_command, { silent = true, noremap = true })
 		end
 	end,
 })

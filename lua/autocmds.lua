@@ -145,3 +145,67 @@ autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+
+------Wezterm Integrations. ----------
+
+local weztermGroup = vim.api.nvim_create_augroup("wezterm", { clear = true })
+
+local filetype_commands = {
+	python = "python3 %; zsh",
+	javascript = "node %; zsh",
+	typescript = "ts-node %; zsh",
+	haskell = "stack build && stack test; zsh",
+	lua = "lua %; zsh",
+	-- Add more filetypes and commands as needed
+}
+
+local function set_tab_name(event)
+	local title = "nvim"
+	print("vim.fn.expand", vim.fn.expand("%p"))
+	if event.file ~= "" then
+		title = string.format("nvim: %s", vim.fs.basename(event.file))
+	end
+end
+
+-- vim.fn.system({ "wezterm", "cli", "set-tab-title", title })
+vim.api.nvim_create_autocmd({ "Filetype" }, {
+	group = weztermGroup,
+	pattern = "*",
+	callback = function(event)
+		local buf_path = vim.api.nvim_buf_get_name(0)
+		print("buf_path", buf_path)
+		local path = vim.fn.expand("%:h") .. "/"
+		print("path", path)
+
+		local spawn_window = ":!pane_id=$(wezterm cli spawn --new-window --cwd " .. "./" .. path .. ")"
+		local cmd = 'echo -e "stack test && stack build"'
+		local send_cmd = "wezterm cli send-text --no-paste --pane-id $pane_id <cr>"
+		vim.keymap.set(
+			"n",
+			"<leader>rr",
+			spawn_window .. " && " .. cmd .. " | " .. send_cmd
+			-- .. buf_path
+			-- .. '&& echo -e "ls -la" | wezterm cli send-text --no-paste --pane-id $pane_id <cr>'
+		)
+	end,
+})
+
+-- Autocommand to set up the keymap for filetypes with Vimux commands
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		local filetype = vim.bo.filetype
+-- 		if filetype_commands[filetype] then
+-- 			-- local wezterm_command = get_ft_command(filetype)
+--
+-- 			-- vim.keymap.set("n", "<leader>rr", wezterm_command, { silent = true, noremap = true })
+-- 		end
+-- 	end,
+-- })
+
+-- local command_string = ":!pane_id=$(wezterm cli spawn)"
+-- 	.. '&& echo -e "'
+-- 	.. command
+-- 	.. buf_path
+-- 	.. '"| wezterm cli send-text --no-paste --pane-id $pane_id <cr>'
+-- return command_string
