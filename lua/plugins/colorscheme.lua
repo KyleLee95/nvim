@@ -24,26 +24,3 @@ return {
 		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE", ctermbg = "NONE" })
 	end,
 }
-
--- return {
--- 	"rose-pine/neovim",
--- 	name = "rose-pine",
--- 	config = function()
--- 		require("rose-pine").setup({
--- 			enable = {
--- 				legacy_highlights = true,
--- 			},
--- 			styles = {
--- 				bold = true,
--- 				italic = true,
--- 				transparency = true,
--- 			},
--- 		})
---
--- 		vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "#0f0f0f", ctermbg = "NONE" })
--- 		-- vim.cmd("colorscheme rose-pine")
--- 		-- vim.cmd("colorscheme rose-pine-main")
--- 		vim.cmd("colorscheme rose-pine-moon")
--- 		-- vim.cmd("colorscheme rose-pine-dawn")
--- 	end,
--- }
