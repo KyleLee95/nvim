@@ -14,6 +14,7 @@ return {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.completion.spell,
+				null_ls.builtins.formatting.sqlfmt,
 			},
 
 			-- you can reuse a shared lspconfig on_attach callback here
