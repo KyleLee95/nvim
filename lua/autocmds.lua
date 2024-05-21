@@ -1,10 +1,6 @@
 -------------------------------------------------  General --------------------------------------
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
-
-
-
-
 -------------------------------------------------  Markdown files --------------------------------------
 vim.api.nvim_create_augroup("markdown_settings", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -22,7 +18,7 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 	group = "markdown_settings",
 	callback = function()
 		vim.opt_local.spell = false
-		vim.opt_local.wrap = false
+		vim.opt_local.wrap = true
 		vim.opt_local.textwidth = 120
 	end,
 })
