@@ -34,7 +34,6 @@ return {
 				"html",
 				"lua_ls",
 				"marksman",
-				"pylsp",
 				"rust_analyzer",
 				"tsserver",
 			},
@@ -65,6 +64,20 @@ return {
 					capabilities = capabilities,
 					settings = {
 						formattingProviders = { "ormolu" },
+					},
+				})
+			end,
+			["pyright"] = function()
+				local lspconfig = require("lspconfig")
+				lspconfig.pyright.setup({
+					capabilities = capabilities,
+					settings = {
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								diagnosticMode = "workspace",
+							},
+						},
 					},
 				})
 			end,

@@ -2,7 +2,6 @@
 vim.g.mapleader = ","
 
 vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>")
--- vim.keymap.set( "n" , "<C-b>", ":Neotree toggle <Enter>")
 vim.keymap.set("n", "<F12>", ":UndotreeToggle <Enter>")
 
 --Splits

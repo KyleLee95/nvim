@@ -146,7 +146,16 @@ autocmd("LspAttach", {
 	end,
 })
 
-------Wezterm Integrations. ----------
+------------------------------------------------ Neovim Daemons ----------------------------------------------------
+local StopNeovimDaemons = vim.api.nvim_create_augroup("StopNeovimDaemons", {})
+vim.api.nvim_create_autocmd("ExitPre", {
+	group = StopNeovimDaemons,
+	callback = function()
+		vim.fn.jobstart(vim.fn.expand("~/.config/nvim/scripts/stop-nvim-daemons.sh"), { detach = true })
+	end,
+})
+
+------------------------------------------------ Wezterm Integrations. ------------------------------------------------
 
 local weztermGroup = vim.api.nvim_create_augroup("wezterm", { clear = true })
 
