@@ -1,7 +1,7 @@
 return {
 	"Exafunction/codeium.vim",
 	lazy = true,
-	event = 'BufEnter',
+	-- event = 'BufEnter',
 	config = function()
 		-- Change '<C-g>' here to any keycode you like.
 		vim.g.codeium_disable_bindings = 1
