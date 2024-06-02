@@ -1,7 +1,7 @@
 -- --my own custom theme forked from lunarvim's darkplus:)
+
 return {
-	dir = "~/dev/darkplus.nvim/",
-	lazy = false,
+	"KyleLee95/darkplus.nvim",
 	priority = 1000,
 	config = function()
 		vim.cmd("colorscheme darkplus")
@@ -24,4 +24,3 @@ return {
 		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE", ctermbg = "NONE" })
 	end,
 }
-
