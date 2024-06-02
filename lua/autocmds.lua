@@ -151,7 +151,7 @@ local StopNeovimDaemons = vim.api.nvim_create_augroup("StopNeovimDaemons", {})
 vim.api.nvim_create_autocmd("ExitPre", {
 	group = StopNeovimDaemons,
 	callback = function()
-		vim.fn.jobstart(vim.fn.expand("~/.config/nvim/scripts/stop-nvim-daemons.sh"), { detach = true })
+		vim.fn.jobstart(vim.fn.expand("~/.local/bin/utils/stop_nvim_daemons.sh"), { detach = true })
 	end,
 })
 
