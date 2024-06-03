@@ -1,7 +1,7 @@
--- --my own custom theme forked from lunarvim's darkplus:)
+--my own custom theme forked from lunarvim's darkplus:)
 
 return {
-	"KyleLee95/darkplus.nvim",
+	dir = "~/dev/darkplus.nvim",
 	priority = 1000,
 	config = function()
 		vim.cmd("colorscheme darkplus")
