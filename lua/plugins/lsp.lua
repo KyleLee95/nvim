@@ -106,7 +106,16 @@ return {
 		})
 
 		vim.diagnostic.config({
-			-- update_in_insert = true,
+			virtual_text = false,
+			signs = {
+				[vim.diagnostic.severity.ERROR] = "",
+				[vim.diagnostic.severity.WARN] = "",
+				[vim.diagnostic.severity.INFO] = "",
+				[vim.diagnostic.severity.HINT] = "",
+			},
+			update_in_insert = false,
+			underline = true,
+			severity_sort = true,
 			float = {
 				focusable = false,
 				style = "minimal",
@@ -115,22 +124,6 @@ return {
 				header = "",
 				prefix = "",
 			},
-		})
-
-		vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "LspDiagnosticsDefaultError" })
-
-		vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "LspDiagnosticsDefaultWarning" })
-
-		vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "LspDiagnosticsDefaultInformation" })
-
-		vim.fn.sign_define("DiagnosticSignHint", { text = "󱧢", texthl = "LspDiagnosticsDefaultHint" })
-		vim.diagnostic.config({
-			virtual_text = false,
-			signs = true,
-			update_in_insert = false,
-			underline = true,
-			severity_sort = true,
-			float = false,
 		})
 	end,
 }
