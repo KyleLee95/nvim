@@ -2,10 +2,10 @@
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 -------------------------------------------------  Markdown files --------------------------------------
-vim.api.nvim_create_augroup("markdown_settings", { clear = true })
+local markdownGroup = vim.api.nvim_create_augroup("markdown_settings", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*.md",
-	group = "markdown_settings",
+	group = markdownGroup,
 	callback = function()
 		vim.opt_local.spell = true
 		vim.opt_local.wrap = true
@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 	pattern = { "*.md" },
-	group = "markdown_settings",
+	group = markdownGroup,
 	callback = function()
 		vim.opt_local.spell = false
 		vim.opt_local.wrap = true
@@ -146,7 +146,22 @@ autocmd("LspAttach", {
 	end,
 })
 
------------------------------------------------- Neovim Daemons ----------------------------------------------------
+local precognitionGroup = vim.api.nvim_create_augroup("precognition", { clear = true })
+vim.api.nvim_create_autocmd("InsertEnter", {
+	pattern = "*.*",
+	group = precognitionGroup,
+	callback = function()
+		require("precognition").toggle()
+	end,
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+	pattern = "*.*",
+	group = precognitionGroup,
+	callback = function()
+		require("precognition").toggle()
+	end,
+})
+
 local StopNeovimDaemons = vim.api.nvim_create_augroup("StopNeovimDaemons", {})
 vim.api.nvim_create_autocmd("ExitPre", {
 	group = StopNeovimDaemons,
