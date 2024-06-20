@@ -6,6 +6,9 @@ return {
 	---type TSConfig
 	---param opts TSConfig
 	opts = {
+		config = {
+			cpp = { __default = "// %s", __multiline = "/* %s */" },
+		},
 		highlight = { enable = true },
 		indent = { enable = true, disable = { "python" } },
 		context_commentstring = { enable = true, enable_autocmd = false },
@@ -24,6 +27,8 @@ return {
 			"typescript",
 			"vim",
 			"yaml",
+			"c",
+			"cpp",
 		},
 	},
 	config = function(_, opts)

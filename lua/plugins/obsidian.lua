@@ -23,7 +23,7 @@ return {
 		-- 		path = "/Users/kyle/vaults/programming",
 		-- 	},
 		-- },
-		dir = "/Users/kyle/vaults/programming",
+		dir = "~/vaults/programming",
 		-- Optional, customize how names/IDs for new notes are created.
 		note_id_func = function(title)
 			-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.

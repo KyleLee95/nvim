@@ -30,7 +30,6 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"clangd",
-				"hls",
 				"html",
 				"lua_ls",
 				"marksman",
@@ -58,15 +57,6 @@ return {
 					})
 				end,
 			},
-			["hls"] = function()
-				local lspconfig = require("lspconfig")
-				lspconfig.hls.setup({
-					capabilities = capabilities,
-					settings = {
-						formattingProviders = { "ormolu" },
-					},
-				})
-			end,
 			["pyright"] = function()
 				local lspconfig = require("lspconfig")
 				lspconfig.pyright.setup({
@@ -108,12 +98,12 @@ return {
 		vim.diagnostic.config({
 			virtual_text = false,
 			signs = {
-				text= {
+				text = {
 					[vim.diagnostic.severity.ERROR] = "",
 					[vim.diagnostic.severity.WARN] = "",
 					[vim.diagnostic.severity.INFO] = "",
 					[vim.diagnostic.severity.HINT] = "",
-				}
+				},
 			},
 			update_in_insert = false,
 			underline = true,

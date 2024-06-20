@@ -146,21 +146,21 @@ autocmd("LspAttach", {
 	end,
 })
 
-local precognitionGroup = vim.api.nvim_create_augroup("precognition", { clear = true })
-vim.api.nvim_create_autocmd("InsertEnter", {
-	pattern = "*.*",
-	group = precognitionGroup,
-	callback = function()
-		require("precognition").toggle()
-	end,
-})
-vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*.*",
-	group = precognitionGroup,
-	callback = function()
-		require("precognition").toggle()
-	end,
-})
+-- local precognitionGroup = vim.api.nvim_create_augroup("precognition", { clear = true })
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+-- 	pattern = "*.*",
+-- 	group = precognitionGroup,
+-- 	callback = function()
+-- 		require("precognition").toggle()
+-- 	end,
+-- })
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+-- 	pattern = "*.*",
+-- 	group = precognitionGroup,
+-- 	callback = function()
+-- 		require("precognition").toggle()
+-- 	end,
+-- })
 
 local StopNeovimDaemons = vim.api.nvim_create_augroup("StopNeovimDaemons", {})
 vim.api.nvim_create_autocmd("ExitPre", {
