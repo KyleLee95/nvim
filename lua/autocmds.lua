@@ -1,6 +1,16 @@
 -------------------------------------------------  General --------------------------------------
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
+-------------------------------------------------  CUDA files --------------------------------------
+local commentGroup = vim.api.nvim_create_augroup("cuda_settings", { clear = true })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = "*.cu",
+	group = commentGroup,
+	callback = function()
+		vim.opt_local.commentstring = "// %s"
+	end,
+})
+
 -------------------------------------------------  Markdown files --------------------------------------
 local markdownGroup = vim.api.nvim_create_augroup("markdown_settings", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
