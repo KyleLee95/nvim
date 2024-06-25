@@ -6,11 +6,23 @@ return {
 	event = { "BufReadPost", "BufNewFile" },
 	config = function()
 		require("ts_context_commentstring").setup({})
-		local configs =require("nvim-treesitter.configs")
+		local configs = require("nvim-treesitter.configs")
 		configs.setup({
-			ensure_installed = {"c", "cpp", "cuda", "lua", "markdown", "markdown-inline", "vim", "html", "javascript", "typescript"},
+			ensure_installed = {
+				"c",
+				"cpp",
+				"cuda",
+				"lua",
+				"markdown",
+				"markdown_inline",
+				"nix",
+				"vim",
+				"html",
+				"javascript",
+				"typescript",
+			},
 			highlight = { enable = true },
-			indent = { enable = true },
+			indent = { enable = true, ignore = { "python" } },
 		})
 	end,
 }
