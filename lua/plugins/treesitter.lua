@@ -8,7 +8,15 @@ return {
 	opts = {
 		highlight = { enable = true },
 		indent = { enable = true, disable = { "python" } },
-		context_commentstring = { enable = true, enable_autocmd = false },
+		context_commentstring = {
+			enable = true,
+			enable_autocmd = false,
+			config = {
+				cpp = "// %s",
+				c = "// %s",
+				cuda = "// %s",
+			},
+		},
 		ensure_installed = {
 			"bash",
 			"html",
