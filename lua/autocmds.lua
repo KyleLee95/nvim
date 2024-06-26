@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*.cu",
 	group = commentGroup,
 	callback = function()
-		vim.opt_local.commentstring = "// %s" --for darwin
+		-- vim.opt_local.commentstring = "// %s" --for darwin
 		vim.bo.commentstring = "// %s" -- for linux
 	end,
 })
