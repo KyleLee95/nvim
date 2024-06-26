@@ -7,8 +7,10 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*.cu",
 	group = commentGroup,
 	callback = function()
-		-- vim.opt_local.commentstring = "// %s" --for darwin
-		vim.bo.commentstring = "// %s" -- for linux
+		vim.opt_local.commentstring = "// %s"
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.shiftwidth = 2
 	end,
 })
 
