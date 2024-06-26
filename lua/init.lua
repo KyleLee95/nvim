@@ -28,7 +28,7 @@ require("lazy").setup({
 	} } },
 	lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
 	defaults = {
-		lazy = false, -- should plugins be lazy-loaded?
+		lazy = false,                                      -- should plugins be lazy-loaded?
 		version = nil,
 		-- version = "*", -- enable this to try installing the latest stable versions of plugins
 	},
@@ -61,6 +61,3 @@ require("lazy").setup({
 	},
 	state = vim.fn.stdpath("state") .. "/lazy/state.json", -- state info for checker and other things
 })
--- use ripgrep for grepping
-vim.opt.grepprg = "rg --smartcase --vimgrep"
-vim.opt.grepformat = "%f:%l:%c:%m"
