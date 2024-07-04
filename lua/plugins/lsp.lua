@@ -43,6 +43,12 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+				["clangd"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.clangd.setup({
+						capabilities = capabilities,
+					})
+				end,
 
 				["lua_ls"] = function()
 					local lspconfig = require("lspconfig")
@@ -58,6 +64,13 @@ return {
 					})
 				end,
 			},
+
+			["kotlin_language_server"] = function()
+				local lspconfig = require("lspconfig")
+				lspconfig.hls.setup({
+					capabilities = capabilities,
+				})
+			end,
 			["hls"] = function()
 				local lspconfig = require("lspconfig")
 				lspconfig.hls.setup({
@@ -101,16 +114,13 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
 			}),
-			sources = cmp.config.sources(
-				{
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
-					{ name = "supermaven" },
-				},
-				{
-					{ name = "buffer" },
-				}
-			),
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "supermaven" },
+			}, {
+				{ name = "buffer" },
+			}),
 		})
 
 		vim.diagnostic.config({
@@ -127,7 +137,7 @@ return {
 			underline = true,
 			severity_sort = true,
 			float = {
-				focusable = true,
+				focusable = false,
 				style = "minimal",
 				border = "rounded",
 				source = "always",
