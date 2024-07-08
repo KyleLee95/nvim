@@ -1,5 +1,4 @@
-return { -- Telescope
-	-- Find, Filter, Preview, Pick. All lua, all the time.
+return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -20,10 +19,7 @@ return { -- Telescope
 					},
 				},
 			})
-			-- To get fzf loaded and working with telescope, you need to call
-			-- load_extension, somewhere after setup function:
-			--        require("telescope").load_extension("fzf")
-
+			-- To get fzf loaded and working with telescope, you need to call the load function
 			require("telescope").load_extension("fzf")
 
 			-- set keymaps

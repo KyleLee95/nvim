@@ -6,7 +6,6 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({
-			-- debug = true,
 			sources = {
 				-- me no know tab or space good or line or newline. let compooper decide for me
 				null_ls.builtins.formatting.ktlint,

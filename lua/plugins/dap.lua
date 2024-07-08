@@ -1,4 +1,3 @@
-
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
@@ -40,10 +39,7 @@ return {
 		vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
 		vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
 
-		vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint,{})
-		vim.keymap.set("n", "<Leader>dn", dap.continue,{})
-
-
-
+		vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, {})
+		vim.keymap.set("n", "<Leader>dn", dap.continue, {})
 	end,
 }

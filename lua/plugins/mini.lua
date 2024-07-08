@@ -19,21 +19,5 @@ return {
 		surround.setup({})
 		local align = require("mini.align")
 		align.setup({})
-		-- local comment = require("mini.comment")
-		-- comment.setup({
-		-- 	options = {
-		-- 		-- Function to compute custom 'commentstring' (optional)
-		-- 		custom_commentstring = nil,
-		--
-		-- 		-- Whether to ignore blank lines when commenting
-		-- 		ignore_blank_line = false,
-		--
-		-- 		-- Whether to recognize as comment only lines without indent
-		-- 		start_of_line = false,
-		--
-		-- 		-- Whether to force single space inner padding for comment parts
-		-- 		pad_comment_parts = true,
-		-- 	},
-		-- })
 	end,
 }
