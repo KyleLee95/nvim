@@ -1,6 +1,6 @@
 local M = {}
 
--------------------------------------------------  General --------------------------------------
+-------------------------------------------------  General ----------------------------------------
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 -------------------------------------------------  CUDA files --------------------------------------
@@ -239,7 +239,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function()
 		local filetype = vim.bo.filetype
-		print("filetype", filetype)
 		if filetype_commands[filetype] then
 			local ft_command = get_ft_command(filetype)
 			vim.keymap.set("n", "<leader>rr", create_repl_pane(ft_command), { silent = true, noremap = true })
