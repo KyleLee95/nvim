@@ -169,74 +169,74 @@ vim.api.nvim_create_autocmd("ExitPre", {
 
 ------------------------------------------------ Wezterm Integrations. ------------------------------------------------
 
-local filetype_commands = {
-	python = "python3 %",
-	javascript = "node %",
-	typescript = "ts-node %",
-	haskell = "stack build && stack test",
-	lua = "lua %",
-	-- Add more filetypes and commands as needed
-}
-
-local function get_ft_command(filetype)
-	local command = filetype_commands[filetype]
-	local buffer_name = vim.fn.expand("%")
-	local full_command_str = command:gsub("%%", buffer_name)
-	return full_command_str
-end
-
-local function create_wezterm_splitpane()
-	local id = vim.system({ "wezterm", "cli", "split-pane", "--right", "--percent", "40" }, { text = true }, function(p)
-		if p.code ~= 0 then
-			vim.notify("Failed to create a split pane. \n" .. p.stderr, vim.logs.levels.ERROR, { title = "Wezterm" })
-		end
-	end):wait()
-
-	local stripped_id = string.gsub(id.stdout, "%s+", "")
-	return stripped_id
-end
-
-local function send_text_to_wezterm(pane_id, full_command_str)
-	local result = vim.system(
-		{ "wezterm", "cli", "send-text", "--no-paste", "--pane-id", pane_id, full_command_str .. "\r" },
-		{ text = true },
-		function(p)
-			return p
-		end
-	):wait()
-	return result
-end
-
-local repl_pane_id = nil
-local function create_repl_pane(ft_command)
-	return function()
-		if repl_pane_id == nil then
-			repl_pane_id = create_wezterm_splitpane()
-		end
-
-		local result = send_text_to_wezterm(repl_pane_id, ft_command)
-		if repl_pane_id ~= nil and result.code ~= 0 then
-			repl_pane_id = create_wezterm_splitpane()
-			result = send_text_to_wezterm(repl_pane_id, ft_command)
-		end
-
-		if result.code ~= 0 then
-			vim.notify(
-				"Failed to move to send text to pane:" .. repl_pane_id .. " \n" .. result.stderr,
-				vim.log.levels.ERROR,
-				{ title = "Wezterm" }
-			)
-		end
-	end
-end
--- Autocommand to set up the keymap for filetypes with Wezterm
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		local filetype = vim.bo.filetype
-		if filetype_commands[filetype] then
-			local ft_command = get_ft_command(filetype)
-			vim.keymap.set("n", "<leader>rr", create_repl_pane(ft_command), { silent = true, noremap = true })
-		end
-	end,
-})
+-- local filetype_commands = {
+-- 	python = "python3 %",
+-- 	javascript = "node %",
+-- 	typescript = "ts-node %",
+-- 	haskell = "stack build && stack test",
+-- 	lua = "lua %",
+-- 	-- Add more filetypes and commands as needed
+-- }
+--
+-- local function get_ft_command(filetype)
+-- 	local command = filetype_commands[filetype]
+-- 	local buffer_name = vim.fn.expand("%")
+-- 	local full_command_str = command:gsub("%%", buffer_name)
+-- 	return full_command_str
+-- end
+--
+-- local function create_wezterm_splitpane()
+-- 	local id = vim.system({ "wezterm", "cli", "split-pane", "--right", "--percent", "40" }, { text = true }, function(p)
+-- 		if p.code ~= 0 then
+-- 			vim.notify("Failed to create a split pane. \n" .. p.stderr, vim.logs.levels.ERROR, { title = "Wezterm" })
+-- 		end
+-- 	end):wait()
+--
+-- 	local stripped_id = string.gsub(id.stdout, "%s+", "")
+-- 	return stripped_id
+-- end
+--
+-- local function send_text_to_wezterm(pane_id, full_command_str)
+-- 	local result = vim.system(
+-- 		{ "wezterm", "cli", "send-text", "--no-paste", "--pane-id", pane_id, full_command_str .. "\r" },
+-- 		{ text = true },
+-- 		function(p)
+-- 			return p
+-- 		end
+-- 	):wait()
+-- 	return result
+-- end
+--
+-- local repl_pane_id = nil
+-- local function create_repl_pane(ft_command)
+-- 	return function()
+-- 		if repl_pane_id == nil then
+-- 			repl_pane_id = create_wezterm_splitpane()
+-- 		end
+--
+-- 		local result = send_text_to_wezterm(repl_pane_id, ft_command)
+-- 		if repl_pane_id ~= nil and result.code ~= 0 then
+-- 			repl_pane_id = create_wezterm_splitpane()
+-- 			result = send_text_to_wezterm(repl_pane_id, ft_command)
+-- 		end
+--
+-- 		if result.code ~= 0 then
+-- 			vim.notify(
+-- 				"Failed to move to send text to pane:" .. repl_pane_id .. " \n" .. result.stderr,
+-- 				vim.log.levels.ERROR,
+-- 				{ title = "Wezterm" }
+-- 			)
+-- 		end
+-- 	end
+-- end
+-- -- Autocommand to set up the keymap for filetypes with Wezterm
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		local filetype = vim.bo.filetype
+-- 		if filetype_commands[filetype] then
+-- 			local ft_command = get_ft_command(filetype)
+-- 			vim.keymap.set("n", "<leader>rr", create_repl_pane(ft_command), { silent = true, noremap = true })
+-- 		end
+-- 	end,
+-- })
