@@ -3,25 +3,14 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 
 -------------------------------------------------  CUDA files --------------------------------------
 local commentGroup = vim.api.nvim_create_augroup("cuda_settings", { clear = true })
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = "*.cu",
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "cuda", "cu" },
 	group = commentGroup,
-	callback = function()
+	callback = function(ev)
 		vim.opt_local.tabstop = 2
 		vim.opt_local.softtabstop = 2
 		vim.opt_local.shiftwidth = 2
-		vim.opt_local.commentstring = "// %s"
-	end,
-})
-
-vim.api.nvim_create_autocmd("BufWinLeave", {
-	pattern = "*.cu",
-	group = commentGroup,
-	callback = function()
-		vim.opt_local.tabstop = 4
-		vim.opt_local.softtabstop = 4
-		vim.opt_local.shiftwidth = 4
-		vim.opt_local.commentstring = ""
+		vim.bo[ev.buf].commentstring = "// %s"
 	end,
 })
 
