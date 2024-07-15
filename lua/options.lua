@@ -1,16 +1,18 @@
 local set = vim.opt
+
+--wrap lines
+
+set.wrap = true
+set.textwidth = 80
 -- 1 tab = 4 spaces
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
 
 -- sets relative and absolute line numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
+set.nu = true
+set.relativenumber = true
 vim.o.statuscolumn = "%s %l %r "
-
--- handles markdown rendering for things like code blocks, bullets, etc.
-set.conceallevel = 1
 
 -- spelling. See autocmds.lua for more
 set.spelllang = "en_us"
